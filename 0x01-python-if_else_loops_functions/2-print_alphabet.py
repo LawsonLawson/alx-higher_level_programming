@@ -1,5 +1,3 @@
 #!/usr/bin/python3
-character = ord('a')
-while character <= ord('z'):
-    print(chr(character), end='')
-    character = character + 1
+for alpha in range(26):
+    print(chr(97 + alpha), end ="")
