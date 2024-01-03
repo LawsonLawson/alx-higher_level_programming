@@ -1,3 +1,3 @@
 #!/usr/bin/python3
 for alpha in range(26):
-    print(chr(97 + alpha), end ="")
+    print('{:c}'.format(97 + alpha), end ="")
