@@ -1,4 +1,4 @@
-#!/bin/usr/python3
+#!/usr/bin/python3
 def no_c(my_string):
     """Removes all 'C' and 'c' characters from a string"""
     if my_string:
