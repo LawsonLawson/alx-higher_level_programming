@@ -3,10 +3,12 @@ def divisible_by_2(my_list=[]):
     """
     Finds all the even numbers in a list
     """
-    new_list = []
-    for number in range(len(my_list)):
-        if my_list[number] % 2 == 0:
-            new_list.append(True)
-        else:
-            new_list.append(False)
+    if my_list:
+        list_length = len(my_list)
+        new_list = []
+        for number in range(list_length):
+            if my_list[number] % 2 == 0:
+                new_list.insert(number, True)
+            else:
+                new_list.insert(number, False)
         return new_list
