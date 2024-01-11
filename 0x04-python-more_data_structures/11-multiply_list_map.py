@@ -9,6 +9,4 @@ def multiply_list_map(my_list=[], number=0):
 
     Returns: A new list with elements multiplied by the specified number.
     """
-    if my_list is None:
-        my_listt = []
-    return list(map(lambda x: x * number, my_list))
+    return list(map(lambda value: value * number, my_list or []))
