@@ -1,0 +1,42 @@
+# Importing the say_my_name function from the "3-say_my_name" module
+>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+# Testing with first name "Jannik" and last name "Sinner"
+>>> say_my_name("Jannik", "Sinner")
+My name is Jannik Sinner
+
+# Testing with fist and last name "Novak" and "Djokovic"
+>>> say_my_name("Novak", "Djokovic")
+My name is Novak Djokovic
+
+# Testing with first name "Sabalenka" and last name "Rov Levar Arena"
+>>> say_my_name("Sabalenka", "Rov Levar Arena")
+My name is Sabalenka Rov Levar Arena
+
+# Testing with only the first name "Bublik"
+>>> say_my_name("Bublik")
+My name is Bublik 
+
+# Testing with first name "Zverev" and last name "Isner"
+>>> say_my_name("Zverev", "Isner")
+My name is Zverev Isner
+
+# Testing with first name "Azarenka" and last name "Ostapenko"
+>>> say_my_name("Azarenka", "Ostapenko")
+My name is Azarenka Ostapenko
+
+# Testing with only the first name "Koystuk"
+>>> say_my_name("Koystuk")
+My name is Koystuk 
+
+# Testing with first name "Rolland Garros" and last name "Monfils"
+>>> say_my_name("Rolland Garros", "Monfils")
+My name is Rolland Garros Monfils
+
+# Testing with first name "Roger Federer" and last name "Rafa Nadal"
+>>> say_my_name("Roger Federer", "Rafa Nadal")
+My name is Roger Federer Rafa Nadal
+
+# Testing with first name "Ash Barty" and last name "5"
+>>> say_my_name("Ash Barty", "5")
+My name is Ash Barty 5
