@@ -1,0 +1,106 @@
+The 4-print_square Module:
+    >>> print_square = __import__("4-print_square").print_square
+
+Make Sure Documentation Exists:
+
+    # Check if module documentation exists
+    >>> module_documentation = __import__("4-print_square").__doc__
+    >>> print(len(module_documentation) > 0)
+    True
+
+    # Check if function documentation exists
+    >>> function_documentation = __import__("4-print_square").print_square.__doc__
+    >>> print(len(function_documentation) > 0)
+    True
+
+Correct Usage:
+
+    # Test with size 1
+    >>> print_square(1)
+    #
+
+    # Test with boolean input (True)
+    >>> print_square(True)
+    #
+
+    # Test with size 0 (empty square)
+    >>> print_square(0)
+
+    # Test with boolean input (False)
+    >>> print_square(False)
+
+    # Test with size 3
+    >>> print_square(3)
+    ###
+    ###
+    ###
+
+    # Test with size 5
+    >>> print_square(5)
+    #####
+    #####
+    #####
+    #####
+    #####
+
+On Errors:
+
+    # Test without providing size argument
+    >>> print(print_square())
+    Traceback (most recent call last):
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
+    # Test with multiple arguments
+    >>> print(print_square(1, 3, 5))
+    Traceback (most recent call last):
+    TypeError: print_square() takes 1 positional argument but 3 were given
+
+    # Test with None input
+    >>> print(print_square(None))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    # Test with float input
+    >>> print(print_square(3.0))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    # Test with negative float input
+    >>> print(print_square(-3.0))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    # Test with negative integer input
+    >>> print(print_square(-3))
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
+
+    # Test with very large integer input
+    >>> print(print_square(2e8000))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    # Test with string input
+    >>> print(print_square("Not a square"))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    # Test with tuple input
+    >>> print(print_square((2, 2)))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    # Test with list input
+    >>> print(print_square([2, 2]))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    # Test with set input
+    >>> print(print_square({2, 3}))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    # Test with dictionary input
+    >>> print(print_square({2:"hi", 3:"bye"}))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
