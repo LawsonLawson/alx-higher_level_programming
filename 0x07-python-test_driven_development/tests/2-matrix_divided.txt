@@ -1,0 +1,64 @@
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+# Test Case 1: Basic division with positive integers
+>>> matrix = [[8, 12, 24], [18, 36, 42]]
+>>> matrix_divided(matrix, 4)
+[[2.0, 3.0, 6.0], [4.5, 9.0, 10.5]]
+
+# Test Case 2: Division with negative integers
+>>> matrix_divided([[-6, -12, -18], [24, 36, -48]], 6)
+[[-1.0, -2.0, -3.0], [4.0, 6.0, -8.0]]
+
+# Test Case 3: Division with a matrix containing only one row
+>>> matrix_divided([[3, 6, 9]], 3)
+[[1.0, 2.0, 3.0]]
+
+# Test Case 4: Division with a matrix containing only one column
+>>> matrix_divided([[4], [8], [12]], 2)
+[[2.0], [4.0], [6.0]]
+
+# Test Case 5: Division with a complex matrix
+>>> matrix_divided([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]], 2)
+[[0.5, 1.0, 1.5, 2.0], [2.5, 3.0, 3.5, 4.0], [4.5, 5.0, 5.5, 6.0]]
+
+# Test Case 6: Division by zero
+>>> matrix_divided(matrix, 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+# Test Case 7: Non-matrix input
+>>> matrix_divided([1, 2, 3], 3)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test Case 8: Empty matrix
+>>> matrix_divided([], 3)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test Case 9: Matrix with non-numeric elements
+>>> matrix_divided([["one", 2, 4, 5], [5, "4", 2]], 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test Case 10: Rows with different sizes
+>>> matrix_divided([[1, 2, 3], [4, 5]], 5)
+Traceback (most recent call last):
+...
+TypeError: Each row of the matrix must have the same size
+
+# Test Case 11: Non-numeric divisor
+>>> matrix_divided(matrix, "2")
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+# Test Case 12: Missing divisor
+>>> matrix_divided(matrix)
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
