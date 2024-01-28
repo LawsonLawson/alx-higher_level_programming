@@ -34,6 +34,13 @@ class TestMaxInteger(unittest.TestCase):
     def test_max_integer_nested_lists(self):
         self.assertEqual(max_int([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), [7, 8, 9])
 
+    def test_list_of_strings(self):
+        string = ["Sinner", "won", "AO-2024", "RodLevarArena"]
+        self.assertEqual(max_int(string), "won")
+
+    def test_with_more_strings(self):
+        self.assertEqual(max_int(["Jannik", "Sinner", "Medvedev"]), "Sinner")
+
 
 if __name__ == '__main__':
     unittest.main()
