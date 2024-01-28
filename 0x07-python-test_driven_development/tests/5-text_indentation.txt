@@ -1,0 +1,54 @@
+# Importing the text_indentation function from the "5-text_indentation" module
+>>> text_indentation = __import__("5-text_indentation").text_indentation
+
+# Correct Usage:
+
+# Testing with a simple string
+>>> text_indentation("Greetings, Earthlings!")
+Greetings, Earthlings!
+
+# Testing with a string containing multiple sentences and punctuation
+>>> t="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua? Ut enim ad minim veniam: quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+>>> text_indentation(t)
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+<BLANKLINE>
+Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?
+<BLANKLINE>
+Ut enim ad minim veniam:
+<BLANKLINE>
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+<BLANKLINE>
+
+
+# Testing with a repeated word string
+>>> t = "Bazinga" * 3
+>>> text_indentation(t)
+BazingaBazingaBazinga
+
+# On Errors:
+
+# Testing without providing the required 'text' argument
+>>> text_indentation()
+Traceback (most recent call last):
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+# Testing with multiple arguments
+>>> text_indentation("ble", "ooh", "wah")
+Traceback (most recent call last):
+TypeError: text_indentation() takes 1 positional argument but 3 were given
+
+# Testing with a non-string argument
+>>> text_indentation(4)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+# Testing with a None argument
+>>> text_indentation(None)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+# Testing with a negative integer argument
+>>> text_indentation(-4)
+Traceback (most recent call last):
+TypeError: text must be a string
+
