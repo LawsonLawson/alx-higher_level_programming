@@ -5,7 +5,6 @@ A module that features a blueprint for a rectangle
 
 
 class Rectangle:
-    number_of_instances = 0
     """
     Rectangle blueprint
 
@@ -13,6 +12,9 @@ class Rectangle:
     - widht (int): The width of the rectangle. (default set to 0)
     - height (int): The height of the rectangle. (default set to 0)
     """
+
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         if not isinstance(width, int):
             raise TypeError('width must be an integer')
