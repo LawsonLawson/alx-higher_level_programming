@@ -1,42 +1,27 @@
-# Importing the say_my_name function from the "3-say_my_name" module
->>> say_my_name = __import__("3-say_my_name").say_my_name
+>>> say_my_name = __import__('3-say_my_name').say_my_name
 
-# Testing with first name "Jannik" and last name "Sinner"
->>> say_my_name("Jannik", "Sinner")
-My name is Jannik Sinner
+>>> say_my_name()
+Traceback (most recent call last):
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
 
-# Testing with fist and last name "Novak" and "Djokovic"
->>> say_my_name("Novak", "Djokovic")
-My name is Novak Djokovic
+>>> say_my_name("A", "B", "C")
+Traceback (most recent call last):
+TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
 
-# Testing with first name "Sabalenka" and last name "Rov Levar Arena"
->>> say_my_name("Sabalenka", "Rov Levar Arena")
-My name is Sabalenka Rov Levar Arena
+>>> say_my_name(42)
+Traceback (most recent call last):
+TypeError: first_name must be a string
 
-# Testing with only the first name "Bublik"
->>> say_my_name("Bublik")
-My name is Bublik 
+>>> say_my_name(42, "Israel")
+Traceback (most recent call last):
+TypeError: first_name must be a string
 
-# Testing with first name "Zverev" and last name "Isner"
->>> say_my_name("Zverev", "Isner")
-My name is Zverev Isner
+>>> say_my_name("Pascal", 42)
+Traceback (most recent call last):
+TypeError: last_name must be a string
 
-# Testing with first name "Azarenka" and last name "Ostapenko"
->>> say_my_name("Azarenka", "Ostapenko")
-My name is Azarenka Ostapenko
+>>> say_my_name("Lawson", "Israel")
+My name is Lawson Israel
 
-# Testing with only the first name "Koystuk"
->>> say_my_name("Koystuk")
-My name is Koystuk 
-
-# Testing with first name "Rolland Garros" and last name "Monfils"
->>> say_my_name("Rolland Garros", "Monfils")
-My name is Rolland Garros Monfils
-
-# Testing with first name "Roger Federer" and last name "Rafa Nadal"
->>> say_my_name("Roger Federer", "Rafa Nadal")
-My name is Roger Federer Rafa Nadal
-
-# Testing with first name "Ash Barty" and last name "5"
->>> say_my_name("Ash Barty", "5")
-My name is Ash Barty 5
+>>> say_my_name("Israel")
+My name is Israel 
