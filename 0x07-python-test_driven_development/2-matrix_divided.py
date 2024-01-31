@@ -1,4 +1,4 @@
-#!/usr/bin/ptyhon3
+#!/usr/bin/python3
 """
 This modules features the matrix_divided function. It returns the result
 of the division of all elements in a given matrix by a divisor 'di'.
