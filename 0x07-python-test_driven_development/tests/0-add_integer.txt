@@ -1,40 +1,56 @@
-# Test File: test_add_integer.txt
+The Add_Integer Module:
+=======================
 
-# Import the add_integer function
->>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer = __import__("0-add_integer").add_integer
 
-# Test Case 1: Adding two integers
->>> add_integer(7, 2)
-9
+Make Sure Documentation Exists:
 
-# Test Case 2: Adding a float to an integer
->>> add_integer(0.14, 3)
-3
+    >>> module_documentation = __import__("0-add_integer").__doc__
+    >>> print(len(module_documentation) > 0)
+    True
 
-# Test Case 3: Adding two floats
->>> add_integer(99.1, 0.9)
-99
+    >>> function_documentation = __import__("0-add_integer").add_integer.__doc__
+    >>> print(len(function_documentation) > 0)
+    True
 
-# Test Case 4: Invoking function with only one parameter
->>> add_integer(2.7373837336)
-100
+Correct Usage:
 
-# Test Case 5: Testing function with zero as an argument
->>> add_integer(0, 44)
-44
+    >>> print(add_integer(1, 2))
+    3
 
-# Test Case 6: Testing with negative integers
->>> add_integer(-77, -23)
--100
+    >>> print(add_integer(100, -2))
+    98
 
-# Test Case 7: Testing with negative floats
->>> add_integer(-1.13, -2.01)
--3
+    >>> print(add_integer(100.3, -2))
+    98
 
-# Test Case 8: Testing with negative floats and integers
->>> add_integer(3, -0.8)
-3
+    >>> print(add_integer(-100.3, -2))
+    -102
 
-# Test Case 9: Testing with 0 and floats
->>> add_integer(-3.33, 0)
--3
+    >>> print(add_integer(2**3, -2))
+    6
+
+    >>> print(add_integer(8**0.3, -2))
+    -1
+
+
+On Errors:
+    >>> print(add_integer(4, "School"))
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+    >>> print(add_integer("Holberton", "School"))
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> print(add_integer(None, 3))
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> print(add_integer([1, 2, 3], 3))
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> print(add_integer(foo(3), -2))
+    Traceback (most recent call last):
+    NameError: name 'foo' is not defined
