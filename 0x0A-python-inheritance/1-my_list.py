@@ -22,6 +22,4 @@ class MyList(list):
     """
     def print_sorted(self):
         """Print the list in sorted order."""
-        sorted_list = sorted(self)
-        formatted_elements = [f"{element:d}" for element in sorted_list]
-        print("[" + ", ".join(formatted_elements) + "]")
+        print("[" + ", ".join("{:d}".format(x) for x in sorted(self)) + "]")
