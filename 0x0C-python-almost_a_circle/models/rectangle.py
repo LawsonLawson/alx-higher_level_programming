@@ -89,9 +89,9 @@ class Rectangle(Base):
             attributes = ['id', 'width', 'height', 'x', 'y']
             for i, arg in enumerate(args):
                 setattr(self, attributes[i], arg)
-            else:
-                for key, value in kwargs.items():
-                    setattr(self, key, value)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     @property
     def width(self):
