@@ -69,10 +69,13 @@ class Rectangle(Base):
 
     def display(self):
         """
-        Prints the Rectangle instance with the '#' character.
+        Prints the Rectangle instance with the '#' character considering
+        coordinates x and y.
         """
-        for i in range(self.height):
-            print('#' * self.width)
+        for i in range(self.y):
+            print()
+        for j in range(self.height):
+            print(' ' * self.x + '#' * self.width)
 
     @property
     def width(self):
