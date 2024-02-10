@@ -55,7 +55,7 @@ class Rectangle(Base):
         - String representation of the rectangle instance.
         """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
-                self.id, self.x, self.y, seld.width, self.height
+                self.id, self.x, self.y, self.width, self.height
                 )
 
     def area(self):
