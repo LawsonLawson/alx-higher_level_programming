@@ -58,6 +58,15 @@ class Rectangle(Base):
                 self.id, self.x, self.y, seld.width, self.height
                 )
 
+    def area(self):
+        """
+        Computes and returns the area of the rectangle.
+
+        Returns:
+        - A value (int): Area of the rectangle.
+        """
+        return (self.width * self.height)
+
     @property
     def width(self):
         """Getter for width."""
