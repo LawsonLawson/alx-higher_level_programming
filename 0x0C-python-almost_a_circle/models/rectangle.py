@@ -27,6 +27,19 @@ class Rectangle(Base):
     Methods:
     - __init__: Initializes the Rectangle instance with width, height, x, y,
     and an identifier.
+    - __str__: Returns a string representation of the Rectangle object.
+    _ area: Computes and returns the area of the rectangle object.
+    - display: Prints the Rectangle object with the '#' char considering x and
+    y as coordinates.
+    - update: Assigns key/value arguments to attributes in of the Rectangle
+    object.
+    - to_dictionary: Returns the dictionary representation of the Rectangle.
+
+    Properties:
+    - width: Getter and setter for the width attribute.
+    - height: Getter and setter for the height attribute.
+    - x: Getter and setter for the x attribute.
+    - y: Getter and setter for the y attribute.
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
