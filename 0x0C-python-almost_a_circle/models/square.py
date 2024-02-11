@@ -25,6 +25,8 @@ class Square(Rectangle):
     - __init__: Initializes the Square instance with size, x, y, and an
     identifier.
     - __str__: Returns a string representation of the Square instance.
+    - update: Assigns attributes to the Square object.
+    - to_dictionary: Returns the dictionary representation of the Square.
     """
 
     def __init__(self, size, x=0, y=0, id=None):
@@ -65,6 +67,20 @@ class Square(Rectangle):
         return "[Square] ({}) {}/{} - {}".format(
             self.id, self.x, self.y, self.width
         )
+
+    def to_dictionary(self):
+        """
+        Returns the dictionary representation of the Square.
+
+        Returns:
+        - Dictionary representation of the square object.
+        """
+        return {
+            'id': self.id,
+            'size': self.width,
+            'x': self.x,
+            'y': self.y
+        }
 
     @property
     def size(self):
