@@ -20,6 +20,7 @@ class Base:
     file.
     - from_json_string: Returns the list of dictionaries from the JSON string
     representation.
+    - create: Returns an object with all attributes already set.
     """
     __nb_objects = 0
 
@@ -83,3 +84,23 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Returns an instance with all attributes already set.
+
+        Args:
+        - **dictionary: Double pointer to a dictionary.
+
+        Returns:
+        - Objects with all attributes already set.
+        """
+        if cls.__name__ == 'Rectangle':
+            tryout = cls(1, 1)
+        elif cls.__name__ == 'Square':
+            tryout = cls(1)
+        else:
+            raise TypeError('Unsupported class')
+        tryout.update(**dictionary)
+        return tryout
