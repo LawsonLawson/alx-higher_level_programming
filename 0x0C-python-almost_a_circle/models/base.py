@@ -21,6 +21,7 @@ class Base:
     - from_json_string: Returns the list of dictionaries from the JSON string
     representation.
     - create: Returns an object with all attributes already set.
+    - load_from_file: Returns a list of objects.
     """
     __nb_objects = 0
 
@@ -104,3 +105,21 @@ class Base:
             raise TypeError('Unsupported class')
         tryout.update(**dictionary)
         return tryout
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Returns a list of objects from a JSON file.
+
+        Returns:
+        - List of objects.
+        """
+        file = cls.__name__ + '.json'
+        try:
+            with open(file, 'r') as opened_file:
+                j_data = opened_file.read()
+                d_list = cls.from_json_string(j_data)
+                obj_list = [cls.create(**i) for i in d_list]
+                return obj_list
+        except FileNotFoundError:
+            return []
