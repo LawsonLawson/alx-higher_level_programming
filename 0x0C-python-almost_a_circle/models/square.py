@@ -27,6 +27,9 @@ class Square(Rectangle):
     - __str__: Returns a string representation of the Square instance.
     - update: Assigns attributes to the Square object.
     - to_dictionary: Returns the dictionary representation of the Square.
+
+    Properties:
+    - size: Getter and setter for size attribute.
     """
 
     def __init__(self, size, x=0, y=0, id=None):
