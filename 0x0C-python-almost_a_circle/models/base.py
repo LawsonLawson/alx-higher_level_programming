@@ -5,19 +5,17 @@ Module: base.py
 Description: This module features a base class.
 """
 
+import json
+
 
 class Base:
     """
     Class Base: Represents a base class with an identifier.
 
-    Instance Attribute:
-    - id: An identifier.
-
-    Class Attribute:
-    - __nb__objects: Counter for objects.
-
     Methods:
     - __init__: Initializes the Base instance with an identifier.
+    - to_json_string: Returns the JSON string representation of a list of
+    dictionaries.
     """
     __nb_objects = 0
 
@@ -33,3 +31,19 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+        Returns the JSON string representation of list_dictionaries.
+
+        Args:
+        - list_dictionaries: List of dictionaries.
+
+        Returns:
+        - JSON string representation of list_dictionaries.
+        """
+        if list_dictionaries is None or len(list_dictionaries) == 0:
+            return '[]'
+        else:
+            return json.dumps(list_dictionaries)
