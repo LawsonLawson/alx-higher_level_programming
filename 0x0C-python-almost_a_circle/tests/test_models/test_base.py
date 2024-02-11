@@ -1,7 +1,15 @@
+#!/usr/bin/python3
+"""
+Module: test_base.py
+
+Description: This module features a unittest for the "Base" class
+"""
+
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
+
 
 class TestBaseClass(unittest.TestCase):
     """
@@ -78,7 +86,8 @@ class TestBaseClass(unittest.TestCase):
 
     def test_fromJSONstrWithIntegers(self):
         """
-        Test from_json_string method with a JSON-formatted list containing integers.
+        Test from_json_string method with a JSON-formatted list containing
+        integers.
         """
         self.assertEqual(Base().from_json_string("[4, 6]"), [4, 6])
 
@@ -106,6 +115,7 @@ class TestBaseClass(unittest.TestCase):
         """
         with self.assertRaises(TypeError):
             Base().create(**{"name": "test", "value": 10})
+
 
 if __name__ == '__main__':
     unittest.main()
