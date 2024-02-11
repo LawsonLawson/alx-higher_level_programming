@@ -116,6 +116,111 @@ class TestBaseClass(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base().create(**{"name": "test", "value": 10})
 
+    def test_setNegativeId(self):
+        """
+        Test setting a negative integer id for Base object.
+        """
+        obj = Base(-45)
+        self.assertEqual(obj.id, -45)
+
+    def test_setZeroId(self):
+        """
+        Test setting zero as the id for Base object.
+        """
+        obj = Base(0)
+        self.assertEqual(obj.id, 0)
+
+    def test_setFloatId(self):
+        """
+        Test setting float id for Base object.
+        """
+        obj = Base(3.14)
+        self.assertEqual(obj.id, 3.14)
+
+    def test_setComplexId(self):
+        """
+        Test setting complex id for Base object.
+        """
+        obj = Base(2 + 3j)
+        self.assertEqual(obj.id, 2 + 3j)
+
+    def test_setBooleanId(self):
+        """
+        Test setting boolean id for Base object.
+        """
+        obj = Base(True)
+        self.assertEqual(obj.id, True)
+
+    def test_setListId(self):
+        """
+        Test setting list id for Base object.
+        """
+        obj = Base([1, 2, 3])
+        self.assertEqual(obj.id, [1, 2, 3])
+
+    def test_setTupleId(self):
+        """
+        Test setting tuple id for Base object.
+        """
+        obj = Base((1, 2))
+        self.assertEqual(obj.id, (1, 2))
+
+    def test_setSetId(self):
+        """
+        Test setting set id for Base object.
+        """
+        obj = Base({1, 2, 3})
+        self.assertEqual(obj.id, {1, 2, 3})
+
+    def test_setFrozensetId(self):
+        """
+        Test setting frozenset id for Base object.
+        """
+        obj = Base(frozenset({1, 2, 3}))
+        self.assertEqual(obj.id, frozenset({1, 2, 3}))
+
+    def test_setRangeId(self):
+        """
+        Test setting range id for Base object.
+        """
+        obj = Base(range(5))
+        self.assertEqual(obj.id, range(5))
+
+    def test_setBytesId(self):
+        """
+        Test setting bytes id for Base object.
+        """
+        obj = Base(b'Python')
+        self.assertEqual(obj.id, b'Python')
+
+    def test_setBytearrayId(self):
+        """
+        Test setting bytearray id for Base object.
+        """
+        obj = Base(bytearray(b'abcefg'))
+        self.assertEqual(obj.id, bytearray(b'abcefg'))
+
+    def test_setMemoryviewId(self):
+        """
+        Test setting memoryview id for Base object.
+        """
+        obj = Base(memoryview(b'abcefg'))
+        self.assertEqual(obj.id, memoryview(b'abcefg'))
+
+    def test_setInfId(self):
+        """
+        Test setting float('inf') id for Base object.
+        """
+        obj = Base(float('inf'))
+        self.assertEqual(obj.id, float('inf'))
+
+    def test_setNaNId(self):
+        """
+        Test setting float('nan') id for Base object.
+        """
+        obj = Base(float('nan'))
+        self.assertNotEqual(obj.id, float('nan'))
+
 
 if __name__ == '__main__':
     unittest.main()
