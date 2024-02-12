@@ -109,6 +109,64 @@ class TestRectangleClass(unittest.TestCase):
         rect3 = Rectangle(3, 3)
         self.assertEqual(rect3.area(), 9)
 
+    def test_floatWidthHeight(self):
+        """
+        Test creating a Rectangle instance with floating-point width and
+        height.
+        This should raise a TypeError.
+        """
+        with self.assertRaises(TypeError):
+            Rectangle(3.5, 4.7)
+
+    def test_zeroWidth(self):
+        """
+        Test creating a Rectangle instance with zero width.
+        This should raise a ValueError.
+        """
+        with self.assertRaises(ValueError):
+            Rectangle(0, 4)
+
+    def test_zeroHeight(self):
+        """
+        Test creating a Rectangle instance with zero height.
+        This should raise a ValueError.
+        """
+        with self.assertRaises(ValueError):
+            Rectangle(3, 0)
+
+    def test_negativeWidthHeight(self):
+        """
+        Test creating a Rectangle instance with negative width and height.
+        This should raise a ValueError.
+        """
+        with self.assertRaises(ValueError):
+            Rectangle(-3, -4)
+
+    def test_largeWidthHeight(self):
+        """
+        Test creating a Rectangle instance with extremely large width and
+        height values.
+        """
+        rect = Rectangle(999999999999, 999999999999)
+        self.assertEqual(rect.width, 999999999999)
+        self.assertEqual(rect.height, 999999999999)
+
+    def test_updateKwargs(self):
+        """
+        Test updating the attributes of a Rectangle using **kwargs.
+        """
+        rect = Rectangle(3, 4, 5, 6, 7)
+        rect.update(width=8, height=9, x=10, y=11, id=12)
+        self.assertEqual(str(rect), "[Rectangle] (12) 10/11 - 8/9")
+
+    def test_updateInvalidArgs(self):
+        """
+        Test the behavior when passing invalid arguments to the update method.
+        """
+        rect = Rectangle(3, 4, 5, 6, 7)
+        with self.assertRaises(TypeError):
+            rect.update("invalid", "arguments")
+
 
 if __name__ == '__main__':
     unittest.main()
