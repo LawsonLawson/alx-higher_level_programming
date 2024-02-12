@@ -9,6 +9,8 @@ Description: This module features a unittest for the "Square" class.
 
 
 import unittest
+import sys
+import json
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -93,6 +95,29 @@ class TestSquareClass(unittest.TestCase):
         """
         sq3 = Square(4)
         self.assertEqual(sq3.area(), 16)
+
+    def test_width_height_validation_inherited(self):
+        """
+        Test case to ensure width, height, x, and y validation is inherited
+        from Rectangle
+        """
+        with self.assertRaises(ValueError):
+            Square(0)
+
+        with self.assertRaises(ValueError):
+            Square(-5, -1, -1)
+
+    def test_data_consistency(self):
+        """
+        Test case to ensure data consistency in to_dictionary and
+        from_json_string methods
+        """
+        sq = Square(5, 2, 3, 999)
+        sq_dict = sq.to_dictionary()
+        sq_json_str = Square.to_json_string([sq_dict])
+        sq_json_dict = json.loads(sq_json_str)
+
+        self.assertEqual(sq_dict, sq_json_dict[0])
 
 
 if __name__ == '__main__':
