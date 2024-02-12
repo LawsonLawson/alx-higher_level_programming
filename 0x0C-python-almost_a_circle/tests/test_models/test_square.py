@@ -136,6 +136,25 @@ class TestSquareClass(unittest.TestCase):
         res = "####\n####\n####\n####\n"
         self.assertEqual(s, res)
 
+    def test_update_with_positional_and_keyword_arguments(self):
+        """
+        Test case to check if the update method works correctly
+        with both positional and keyword arguments.
+        """
+        sq = Square(5)
+        sq.update(10)
+        self.assertEqual(sq.id, 10)
+        sq.update(x=12)
+        self.assertEqual(sq.x, 12)
+        sq.update(size=7, id=89, y=1)
+        self.assertEqual(sq.size, 7)
+        self.assertEqual(sq.id, 89)
+        self.assertEqual(sq.y, 1)
+        sq.update()
+        self.assertEqual(sq.size, 7)
+        self.assertEqual(sq.id, 89)
+        self.assertEqual(sq.y, 1)
+
 
 if __name__ == '__main__':
     unittest.main()
