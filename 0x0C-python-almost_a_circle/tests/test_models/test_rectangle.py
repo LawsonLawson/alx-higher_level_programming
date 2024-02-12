@@ -234,6 +234,14 @@ class TestRectangleClass(unittest.TestCase):
             Rectangle(10, 0)
         self.assertEqual(str(context.exception), "height must be > 0")
 
+    def test_x_invalid_type(self):
+        """
+        Test setting x with an invalid type.
+        """
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, 5, "invalid")
+        self.assertEqual(str(context.exception), "x must be an integer")
+
 
 if __name__ == '__main__':
     unittest.main()
