@@ -47,6 +47,20 @@ class TestRectangleClass(unittest.TestCase):
         rect2 = Rectangle(70, 50)
         self.assertEqual(str(rect2), "[Rectangle] (1) 0/0 - 70/50")
 
+    def test_createRegular3(self):
+        """
+        Test creating a Rectangle instance with width, height, x, y, and id.
+        """
+        rect3 = Rectangle(10, 20, 30, 40, 123)
+        self.assertEqual(str(rect3), "[Rectangle] (123) 30/40 - 10/20")
+
+    def test_widthError(self):
+        """
+        Test creating a Rectangle instance with width as a string.
+        """
+        with self.assertRaises(TypeError):
+            Rectangle("bleh", 50)
+
     def test_widthError(self):
         """
         Test creating a Rectangle instance with width as a string.
@@ -331,6 +345,58 @@ class TestRectangleClass(unittest.TestCase):
         r = Rectangle(2, 3)
         r.y = sys.maxsize
         self.assertEqual(r.y, sys.maxsize)
+
+    def test_attribute_settings(self):
+        """
+        Tests setting and updating attributes of Rectangle.
+        """
+        rect = Rectangle(5, 5, 1, 1, 1)
+        rect.width = 10
+        rect.height = 20
+        rect.x = 2
+        rect.y = 3
+        self.assertEqual(rect.width, 10)
+        self.assertEqual(rect.height, 20)
+        self.assertEqual(rect.x, 2)
+        self.assertEqual(rect.y, 3)
+
+    def test_display(self):
+        """
+        Tests the display method of Rectangle.
+        """
+        rect = Rectangle(3, 2)
+        expected_output = "###\n###\n"
+        with io.StringIO() as buffer, redirect_stdout(buffer):
+            rect.display()
+            output = buffer.getvalue()
+            self.assertEqual(output, expected_output)
+
+    def test_save_to_file(self):
+        """
+        Tests saving Rectangle objects to a file.
+        """
+        rectangles = [Rectangle(1, 2, 3, 4, 5), Rectangle(5, 4, 3, 2, 1)]
+        Rectangle.save_to_file(rectangles)
+        with open("Rectangle.json", "r") as file:
+            data = file.read()
+            self.assertNotEqual(data, "")
+
+    def test_exception_handling(self):
+        """
+        Tests various error cases during Rectangle instantiation.
+        """
+        with self.assertRaises(TypeError):
+            Rectangle("invalid", 2)
+        with self.assertRaises(ValueError):
+            Rectangle(-5, 2)
+
+    def test_create_from_dictionary(self):
+        """
+        Tests creating Rectangle objects from dictionaries.
+        """
+        rect_dict = {'id': 123, 'width': 10, 'height': 20, 'x': 30, 'y': 40}
+        rect = Rectangle.create(**rect_dict)
+        self.assertEqual(str(rect), "[Rectangle] (123) 30/40 - 10/20")
 
 
 if __name__ == '__main__':
