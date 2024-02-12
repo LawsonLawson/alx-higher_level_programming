@@ -58,6 +58,9 @@ class Square(Rectangle):
                 setattr(self, attributes[i], arg)
         elif kwargs:
             for key, value in kwargs.items():
+                if not hasattr(self, key):
+                    raise AttributeError(f"invalid attribute name: '{key}'")
+
                 setattr(self, key, value)
 
     def __str__(self):
@@ -67,8 +70,8 @@ class Square(Rectangle):
         Returns:
         - String representation of the square instance.
         """
-        return "[Square] ({}) {}/{} - {}".format(
-            self.id, self.x, self.y, self.width
+        return "[{}] ({}) {}/{} - {}".format(
+            self.__class__.__name__, self.id, self.x, self.y, self.width
         )
 
     def to_dictionary(self):
