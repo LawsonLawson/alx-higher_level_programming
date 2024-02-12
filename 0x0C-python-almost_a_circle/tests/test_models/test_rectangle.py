@@ -9,6 +9,8 @@ Desctiption: This module features a unittest for the "Rectangle" class.
 
 
 import unittest
+import io
+from contextlib import redirect_stdout
 from models.base import Base
 from models.rectangle import Rectangle
 
@@ -285,6 +287,17 @@ class TestRectangleClass(unittest.TestCase):
     def test_load_from_file_nonexistent_file(self):
         """Test loading from a nonexistent file."""
         self.assertEqual(Rectangle.load_from_file(), [])
+
+    def test_display_different_sizes(self):
+        """
+        Test display method with rectangles of different sizes.
+        """
+        r1 = Rectangle(2, 3, 0, 0, 1)
+        expected_output = "##\n##\n##\n"
+        with io.StringIO() as buffer, redirect_stdout(buffer):
+            r1.display()
+            output = buffer.getvalue()
+            self.assertEqual(output, expected_output)
 
 
 if __name__ == '__main__':
