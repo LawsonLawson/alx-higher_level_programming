@@ -258,6 +258,34 @@ class TestRectangleClass(unittest.TestCase):
             Rectangle(10, 5, 3, -2)
         self.assertEqual(str(context.exception), "y must be >= 0")
 
+    def test_invalid_width_height(self):
+        """Test for invalid width and height values during instantiation."""
+        with self.assertRaises(ValueError):
+            Rectangle(-10, 5)
+        with self.assertRaises(ValueError):
+            Rectangle(10, -5)
+
+    def test_invalid_x_y(self):
+        """Test for invalid x and y values during instantiation."""
+        with self.assertRaises(ValueError):
+            Rectangle(10, 5, -2, 3)
+        with self.assertRaises(ValueError):
+            Rectangle(10, 5, 2, -3)
+
+    def test_save_to_file_empty_list(self):
+        """Test saving an empty list of rectangles to file."""
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+    def test_from_json_string_empty_string(self):
+        """Test loading from an empty JSON string."""
+        self.assertEqual(Rectangle.from_json_string(""), [])
+
+    def test_load_from_file_nonexistent_file(self):
+        """Test loading from a nonexistent file."""
+        self.assertEqual(Rectangle.load_from_file(), [])
+
 
 if __name__ == '__main__':
     unittest.main()
