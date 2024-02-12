@@ -10,6 +10,8 @@ Description: This module features a unittest for the "Square" class.
 
 import unittest
 import sys
+import io
+import contextlib
 import json
 from models.base import Base
 from models.rectangle import Rectangle
@@ -118,6 +120,21 @@ class TestSquareClass(unittest.TestCase):
         sq_json_dict = json.loads(sq_json_str)
 
         self.assertEqual(sq_dict, sq_json_dict[0])
+
+    def test_methods_inherited_from_rectangle(self):
+        """
+        Test case to check methods inherited from Rectangle.
+        """
+        sq = Square(4)
+        self.assertEqual(sq.area(), 16)
+        sq.update(7)
+        self.assertEqual(sq.id, 7)
+        f = io.StringIO()
+        with contextlib.redirect_stdout(f):
+            sq.display()
+        s = f.getvalue()
+        res = "####\n####\n####\n####\n"
+        self.assertEqual(s, res)
 
 
 if __name__ == '__main__':
