@@ -28,7 +28,7 @@ class Rectangle(Base):
     - __init__: Initializes the Rectangle instance with width, height, x, y,
     and an identifier.
     - __str__: Returns a string representation of the Rectangle object.
-    _ area: Computes and returns the area of the rectangle object.
+    _ __area: Computes and returns the area of the rectangle object.
     - display: Prints the Rectangle object with the '#' char considering x and
     y as coordinates.
     - update: Assigns key/value arguments to attributes in of the Rectangle
