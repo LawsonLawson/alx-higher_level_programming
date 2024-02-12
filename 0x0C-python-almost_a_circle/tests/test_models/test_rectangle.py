@@ -12,6 +12,7 @@ import unittest
 import io
 from contextlib import redirect_stdout
 from models.base import Base
+import sys
 from models.rectangle import Rectangle
 
 
@@ -298,6 +299,38 @@ class TestRectangleClass(unittest.TestCase):
             r1.display()
             output = buffer.getvalue()
             self.assertEqual(output, expected_output)
+
+    def test_set_to_max_width(self):
+        """
+        Tests setting the width attribute to the maximum allowed integer value.
+        """
+        r = Rectangle(2, 3)
+        r.width = sys.maxsize
+        self.assertEqual(r.width, sys.maxsize)
+
+    def test_set_to_max_height(self):
+        """
+        Tests setting the height attribute to the maximum allowed integer value
+        """
+        r = Rectangle(2, 3)
+        r.height = sys.maxsize
+        self.assertEqual(r.height, sys.maxsize)
+
+    def test_set_to_max_x(self):
+        """
+        Tests setting the x attribute to the maximum allowed integer value.
+        """
+        r = Rectangle(2, 3)
+        r.x = sys.maxsize
+        self.assertEqual(r.x, sys.maxsize)
+
+    def test_set_to_max_y(self):
+        """
+        Tests setting the y attribute to the maximum allowed integer value.
+        """
+        r = Rectangle(2, 3)
+        r.y = sys.maxsize
+        self.assertEqual(r.y, sys.maxsize)
 
 
 if __name__ == '__main__':
