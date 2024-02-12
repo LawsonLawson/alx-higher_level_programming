@@ -186,6 +186,22 @@ class TestRectangleClass(unittest.TestCase):
         expected_dict = {'id': 7, 'width': 3, 'height': 4, 'x': 5, 'y': 6}
         self.assertEqual(rect_dict, expected_dict)
 
+    def test_createNegativeX(self):
+        """
+        Test creating a Rectangle instance with negative x-coordinate.
+        This should raise a ValueError.
+        """
+        with self.assertRaises(ValueError):
+            Rectangle(3, 4, -5, 6, 7)
+
+    def test_createNegativeY(self):
+        """
+        Test creating a Rectangle instance with negative y-coordinate.
+        This should raise a ValueError.
+        """
+        with self.assertRaises(ValueError):
+            Rectangle(3, 4, 5, -6, 7)
+
 
 if __name__ == '__main__':
     unittest.main()
