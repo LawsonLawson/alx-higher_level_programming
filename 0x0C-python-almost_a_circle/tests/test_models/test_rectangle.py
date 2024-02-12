@@ -167,6 +167,25 @@ class TestRectangleClass(unittest.TestCase):
         with self.assertRaises(TypeError):
             rect.update("invalid", "arguments")
 
+    def test_updatePartialArgs(self):
+        """
+        Test updating the attributes of a Rectangle with only some arguments
+        provided.
+        """
+        rect = Rectangle(3, 4, 5, 6, 7)
+        rect.update(8, 9)
+        self.assertEqual(str(rect), "[Rectangle] (8) 5/6 - 9/4")
+
+    def test_toDictionary(self):
+        """
+        Test the to_dictionary method to ensure it returns the expected
+        dictionary representation.
+        """
+        rect = Rectangle(3, 4, 5, 6, 7)
+        rect_dict = rect.to_dictionary()
+        expected_dict = {'id': 7, 'width': 3, 'height': 4, 'x': 5, 'y': 6}
+        self.assertEqual(rect_dict, expected_dict)
+
 
 if __name__ == '__main__':
     unittest.main()
