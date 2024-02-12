@@ -202,6 +202,38 @@ class TestRectangleClass(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(3, 4, 5, -6, 7)
 
+    def test_width_invalid_type(self):
+        """
+        Test setting width with an invalid type.
+        """
+        with self.assertRaises(TypeError) as context:
+            Rectangle("invalid", 2)
+        self.assertEqual(str(context.exception), "width must be an integer")
+
+    def test_width_negative_value(self):
+        """
+        Test setting width with a negative value.
+        """
+        with self.assertRaises(ValueError) as context:
+            Rectangle(-5, 2)
+        self.assertEqual(str(context.exception), "width must be > 0")
+
+    def test_height_invalid_type(self):
+        """
+        Test setting height with an invalid type.
+        """
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, "invalid")
+        self.assertEqual(str(context.exception), "height must be an integer")
+
+    def test_height_zero_value(self):
+        """
+        Test setting height with a zero value.
+        """
+        with self.assertRaises(ValueError) as context:
+            Rectangle(10, 0)
+        self.assertEqual(str(context.exception), "height must be > 0")
+
 
 if __name__ == '__main__':
     unittest.main()
