@@ -160,7 +160,7 @@ class Rectangle(Base):
     def x(self, value):
         """Setter for x."""
         if not isinstance(value, int):
-            raise TypeError("x must be an interger")
+            raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("y must >= 0")
 
