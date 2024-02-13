@@ -155,6 +155,55 @@ class TestSquareClass(unittest.TestCase):
         self.assertEqual(sq.id, 89)
         self.assertEqual(sq.y, 1)
 
+    def test_size_zero(self):
+        """
+        Test case to create a Square instance with size zero
+        """
+        with self.assertRaises(ValueError):
+            Square(0)
+
+    def test_large_size(self):
+        """
+        Test case to create a Square instance with a large size
+        """
+        sq = Square(sys.maxsize)
+        self.assertEqual(sq.size, sys.maxsize)
+
+    def test_negative_coordinates(self):
+        """
+        Test case to create a Square instance with negative x and y coordinates
+        """
+        with self.assertRaises(ValueError):
+            Square(5, -1, -1)
+
+    def test_negative_size(self):
+        """
+        Test case to create a Square instance with negative size
+        """
+        with self.assertRaises(ValueError):
+            Square(-5)
+
+    def test_invalid_size_type(self):
+        """
+        Test case to create a Square instance with size as a string
+        """
+        with self.assertRaises(TypeError):
+            Square("sizee")
+
+    def test_invalid_x_type(self):
+        """
+        Test case to create a Square instance with x as a string
+        """
+        with self.assertRaises(TypeError):
+            Square(3, "Ex", 6)
+
+    def test_invalid_y_type(self):
+        """
+        Test case to create a Square instance with y as a string
+        """
+        with self.assertRaises(TypeError):
+            Square(3, 2, "trees")
+
 
 if __name__ == '__main__':
     unittest.main()
