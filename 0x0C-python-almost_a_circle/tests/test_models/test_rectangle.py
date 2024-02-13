@@ -398,6 +398,12 @@ class TestRectangleClass(unittest.TestCase):
         rect = Rectangle.create(**rect_dict)
         self.assertEqual(str(rect), "[Rectangle] (123) 30/40 - 10/20")
 
+    def test_display_exists(self):
+        """
+        Test if the display() method exists in the Rectangle class.
+        """
+        self.assertTrue(hasattr(Rectangle, 'display'))
+
 
 if __name__ == '__main__':
     unittest.main()
