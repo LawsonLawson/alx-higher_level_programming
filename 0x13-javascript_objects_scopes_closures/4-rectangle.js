@@ -16,7 +16,7 @@
 
 /* Class Creation */
 class Rectangle {
-  construtor (w, h) {
+  constructor (w, h) {
     /* Check for wether h and w are greater than 0 before initialization */
     if (w > 0 && h > 0) {
       this.width = w;
@@ -47,7 +47,7 @@ class Rectangle {
   /* A method that multiplies the width and the height */
   double () {
     this.height = this.height * 2;
-    this.width = this.widht * 2;
+    this.width = this.width * 2;
   }
 }
 
