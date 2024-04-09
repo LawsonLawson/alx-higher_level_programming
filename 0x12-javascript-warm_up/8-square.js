@@ -7,7 +7,7 @@
  * “Missing size”
  */
 /* Initialize a variable to store the size of the square, thus argv[2] */
-const size = process.argv[2];
+const size = parseInt(process.argv[2]);
 
 /* Check if the size is a numer */
 if (isNaN(size)) {
@@ -15,6 +15,10 @@ if (isNaN(size)) {
 } else {
 /* Once we get a number, we loop according to that size */
   for (let i = 0; i < size; i++) {
-    console.log('XXXX');
+    let mySquare = '';
+    for (let j = 0; j < size; j++) {
+      mySquare = mySquare + 'X';
+    }
+    console.log(mySquare);
   }
 }
