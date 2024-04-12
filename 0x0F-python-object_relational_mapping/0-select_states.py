@@ -12,7 +12,7 @@ def main():
     mysql_username, mysql_password, db_name = sys.argv[1:]
 
     # Connect to the MySQL database
-    db_connection = MySQL.connect(
+    db_connection = MySQLdb.connect(
             host="localhost",
             user=mysql_username,
             password=mysql_password,
@@ -33,7 +33,7 @@ def main():
     for state_record in states_data:
         print(state_record)
 
-    # Close the cursoer and connection
+    # Close the cursor and connection
     db_cursor.close()
     db_connection.close()
 
