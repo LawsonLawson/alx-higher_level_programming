@@ -7,7 +7,7 @@ This script retrieves and displays all states from the hbtn_0e_0_usa database.
 import sys
 import MySQLdb
 
-if __name__ = '__main__':
+if __name__ == '__main__':
 
     # Connect to the MySQL database
     db_connection = MySQL.connect(user=sys.argv[1], passwd=sys.argv[2],
