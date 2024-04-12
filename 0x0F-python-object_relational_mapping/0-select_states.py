@@ -34,7 +34,7 @@ def main():
         print(state_record)
 
     # Close the cursoer and connection
-    db_cursoer.close()
+    db_cursor.close()
     db_connection.close()
 
 if __name__ == "__main__":
