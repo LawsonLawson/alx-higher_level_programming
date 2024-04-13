@@ -28,10 +28,10 @@ if __name__ == '__main__':
     cursor = connection.cursor()
 
     # SQL query to select states where name matches the search argument
-    sql_query = "
+    sql_query = """
     SELECT * FROM states WHERE
     name LIKE BINARY '{}' ORDER
-    BY id ASC".format(search_argument)
+    BY id ASC""".format(search_argument)
 
     # Execute the SQL query
     cursor.execute(sql_query)
