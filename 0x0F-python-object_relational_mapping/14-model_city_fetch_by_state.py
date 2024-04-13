@@ -29,8 +29,9 @@ if __name__ == "__main__":
     db_session = SessionMaker()
 
     # Query all City objects and their corresponding State objects
-    city_state_pairs = db_session
-    .query(City, State).filter(State.id=City.state_id).order_by(City.id).all()
+    city_state_pairs = db_session \
+        .query(City, State).filter(State.id == City.state_id) \
+        .order_by(City.id).all()
 
     # Print the results
     for city, state in city_state_pairs:
