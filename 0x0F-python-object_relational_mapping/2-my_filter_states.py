@@ -37,11 +37,11 @@ if __name__ == '__main__':
     cursor.execute(sql_query)
 
     # Fetch all rows from the result set
-    results = cursor.fetchall()
+    result_set = cursor.fetchall()
 
     # Print the results
-    for row in results:
-        print(row)
+    for state_record in results_set:
+        print(state_record)
 
     # Close cursor and database connection
     cursor.close()
