@@ -40,7 +40,7 @@ if __name__ == '__main__':
     result_set = cursor.fetchall()
 
     # Print the results
-    for state_record in results_set:
+    for state_record in result_set:
         print(state_record)
 
     # Close cursor and database connection
