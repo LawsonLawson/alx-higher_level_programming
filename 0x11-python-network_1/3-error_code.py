@@ -15,14 +15,19 @@ import urllib.request
 
 
 if __name__ == '__main__':
+    # Extract the URL from the command-line arguments
+    url = sys.argv[1]
+
+    request = urllib.request.Request(url)
+
     try:
-        # Extract the URL from the command-line arguments
-        url = sys.argv[1]
 
         # Open a connection to the URL
-        with urllib.request.urlopen(url) as response:
+        with urllib.request.urlopen(request) as response:
+
             # Read and print the body of the response
-            print(response.read().decode('utf-8'))
+            print(response.read().decode('ascii'))
+
     except urllib.error.HTTPError as error:
         # Print the error code if an HTTP error occurs
-        print('HTTP Error code: {}'.format(error.code))
+        print('Error code: {}'.format(error.code))
