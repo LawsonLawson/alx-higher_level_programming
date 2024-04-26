@@ -12,7 +12,7 @@ import requests
 
 if __name__ == "__main__":
     # Send a GET request to the URL specified in the command-line arguments
-    r = requests.get(sys.argv[1])
+    request = requests.get(sys.argv[1])
 
     # Print the value of the 'X-Request-Id' header from the response
-    print(r.headers.get('X-Request-Id'))
+    print(request.headers.get('X-Request-Id'))
