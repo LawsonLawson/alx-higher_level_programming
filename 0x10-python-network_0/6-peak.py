@@ -20,7 +20,7 @@ def find_peak(list_of_integers):
     # Check if the list is empty
     if size == 0:
         return None
-    
+
     # Otherwise ... sort the list in ascending order
     list_of_integers.sort()
 
