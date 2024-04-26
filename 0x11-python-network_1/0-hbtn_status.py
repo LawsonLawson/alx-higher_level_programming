@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+This script fetches the content of a web page and prints information about the
+response.
+"""
+
 # Importing the module for handling URL requests
 import urllib.request
 
