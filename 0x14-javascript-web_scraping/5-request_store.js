@@ -2,21 +2,23 @@
 /**
  * File Downloader Script
  *
- * This script downloads a file from a specified URL provided as the first command-line argument,
- * and saves it to a specified file path provided as the second command-line argument.
+ * This script downloads a file from a specified URL provided as the first
+ * command-line argument, and saves it to a specified file path provided as
+ * the second command-line argument.
  *
  * Usage:
- *   node script_name.js <api_url> <file_path>
+ * node script_name.js <api_url> <file_path>
  *
  * Arguments:
- *   <api_url> (string): The URL of the file to download.
- *   <file_path> (string): The path where the downloaded file will be saved.
+ * <api_url> (string): The URL of the file to download.
+ * <file_path> (string): The path where the downloaded file will be saved.
  *
  * Example:
- *   node script_name.js https://example.com/file.txt ./downloaded_file.txt
+ * node script_name.js https://example.com/file.txt ./downloaded_file.txt
  *
  * Output:
- *   Downloads the file from the specified URL and saves it to the specified file path.
+ * Downloads the file from the specified URL and saves it to the specified
+ * file path.
  */
 
 /* Import the 'request' module to handle HTTP request */
